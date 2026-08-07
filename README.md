@@ -15,4 +15,4 @@ loadstring(game:HttpGet("https://githubusercontent.com"))()
 
 ### 🌐 Links
 
-[![Discord](https://shields.io)](https://discord.gg) [![Roblox](https://shields.io)](https://roblox.com)
+[![Discord](https://shields.io)]([https://discord.gg](https://discord.gg/8thB2GXCah)) [![Roblox](https://shields.io)]([https://roblox.com](https://www.roblox.com/users/9505680833/profile))

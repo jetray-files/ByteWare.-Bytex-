@@ -1,6 +1,6 @@
 # ByteX Reanimation
 
-A Roblox reanimation script.
+A Roblox Reanimation Hub Script.
 
 ### 📜 Script Execution
 Paste this script into your Roblox executor to run the working version:

@@ -6,12 +6,12 @@ A Roblox reanimation script.
 Paste this script into your Roblox executor to run the working version:
 
 ```lua
-loadstring(game:HttpGet("https://raw.githubusercontent.com/jetray-files/Bytex/refs/heads/main/bytex%20(working%20version)"))()
+loadstring(game:HttpGet("https://githubusercontent.com"))()
 ```
 
 ### 👥 Credits
-* **the reanimator guy** — Original Concept & Architecture [https://github.com/bytexlol/bytexreanimation]
-* **tniaf** — Code Maintenance & Optimization
+* **tniaf** — Original Creator https://github.com/bytexlol/bytexreanimation
+* **uhhh the reanimator guy** — Co-Creator / Contributor
 
 ### 🌐 Links
 

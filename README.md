@@ -10,7 +10,7 @@ loadstring(game:HttpGet("https://githubusercontent.com"))()
 ```
 
 ### 👥 Credits
-* **tniaf**  Original Creator https://github.com/bytexlol/bytexreanimation
+* **tniaf**  Original Creator https://github.com/bytexlol/bytexreanimation you can add him on discord
 * **uhhh the reanimator guy**  Helper
 
 ### 🌐 Links

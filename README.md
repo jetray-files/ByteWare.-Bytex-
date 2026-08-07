@@ -10,9 +10,9 @@ loadstring(game:HttpGet("https://githubusercontent.com"))()
 ```
 
 ### 👥 Credits
-* **tniaf** — Original Creator (https://github.com/bytexlol/bytexreanimation) 
+* **tniaf**  Original Creator (https://github.com/bytexlol/bytexreanimation) 
   * *Note: You can add him on Discord to tell him to fix Elio Basio and Trap Rifle.*
-* **uhhh the reanimator guy** — Helper
+* **uhhh the reanimator guy**  Helper
 
 ### 🌐 Links
 

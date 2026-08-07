@@ -11,7 +11,7 @@ loadstring(game:HttpGet("https://githubusercontent.com"))()
 
 ### 👥 Credits
 * **tniaf** — Original Creator https://github.com/bytexlol/bytexreanimation
-* **uhhh the reanimator guy** — Co-Creator / Contributor
+* **uhhh the reanimator guy** — Helper
 
 ### 🌐 Links
 

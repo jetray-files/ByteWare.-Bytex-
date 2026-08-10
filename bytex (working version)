@@ -582,7 +582,7 @@ scr:button({
 
         Reanimate(BytexConvert_HatID, BytexConvert_HatCFrame, BytexConvert_HatLimbWeld, true)
 
-        runScript('baseball bat')
+        runScript('baseball')
     end,
 })
 --[[

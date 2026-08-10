@@ -9,9 +9,9 @@ local Bytex = {
     R15FlingPart = "LeftFoot",
     R6FakeLimb = 63690008,
     GiveHatPrefix = "-gh",
-    Permadeath = false,
+    Permadeath = true,
     UseHats = true,
-    ExtraHats = false,
+    ExtraHats = true,
     FlingEnabled = true,
     FlingPartRestingOffset = -10
 }
@@ -57,9 +57,9 @@ function Reanimate(BytexConvert_HatID, BytexConvert_HatCFrame, BytexConvert_HatL
             ["TeleportBackWhenVoided"] = false,
             
             -- [[ Reanimation Settings ]] --
-            ["AlignReanimate"] = false,
+            ["AlignReanimate"] = true,
             ["FullForceAlign"] = false,
-            ["FasterHeartbeat"] = false,
+            ["FasterHeartbeat"] = true,
             ["DynamicalVelocity"] = false,
             ["DisableTweaks"] = true,
             
@@ -67,11 +67,11 @@ function Reanimate(BytexConvert_HatID, BytexConvert_HatCFrame, BytexConvert_HatL
             ["OptimizeGame"] = false,
 
             -- [[ Miscellacious ]] --
-            ["LoadLibrary"] = false,
+            ["LoadLibrary"] = true,
             ["DetailedCredits"] = false,
             
             -- [[ Flinging Methods ]] --
-            ["TorsoFling"] = false,
+            ["TorsoFling"] = true,
             ["R6FlingPart"] = Bytex.R6FlingPart,
             ["R15FlingPart"] = Bytex.R15FlingPart,
 	        ["R6FakeLimb"] = Bytex.R6FakeLimb,
@@ -109,7 +109,7 @@ function Reanimate(BytexConvert_HatID, BytexConvert_HatCFrame, BytexConvert_HatL
             end
         end
 
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/bytexlol/bytexreanimation/refs/heads/main/reanimate.lua"))()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/jetray-files/Bytex/refs/heads/main/reanimate"))()
         
         wait(0.5)
         if Bytex.UseHats then
@@ -184,9 +184,9 @@ local Global = (getgenv and getgenv()) or shared
             ["TeleportBackWhenVoided"] = false,
             
             -- [[ Reanimation Settings ]] --
-            ["AlignReanimate"] = false,
+            ["AlignReanimate"] = true,
             ["FullForceAlign"] = false,
-            ["FasterHeartbeat"] = false,
+            ["FasterHeartbeat"] = true,
             ["DynamicalVelocity"] = false,
             ["DisableTweaks"] = true,
             
@@ -208,7 +208,7 @@ local Global = (getgenv and getgenv()) or shared
             ["MeleeOffsetZ"] = MeleeOffsetZ or -2.5,
             ["MeleeOffsetX"] = MeleeOffsetX or 0,
             ["BulletConfig"] = {
-                ["RunAfterReanimate"] = true,
+                ["RunAfterReanimate"] = false,
                 ["LockBulletOnTorso"] = true
             }
         }
@@ -260,7 +260,7 @@ function runScript2(scr, id, cframe, id2, cframe2, id3, cframe3)
         
     }
 
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/bytexlol/bytexreanimation/refs/heads/main/scripts/"..scr..".lua"))()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/jetray-files/Bytex/refs/heads/main/scripts/"..scr..".lua"))()
 end
 
 --[[
@@ -556,6 +556,35 @@ scr:button({
     end,
 })
 
+scr:button({
+    Name = "Gale Fighter(turn on extra hats)",
+    Callback = function()
+        local BytexConvert_HatID = 121629329212819
+        local BytexConvert_HatCFrame = CFrame.new(0, -0.5, 1.7) * CFrame.Angles(math.rad(-40), math.rad(-90), math.rad(0))
+        local BytexConvert_HatLimbWeld = "Right Arm"
+
+        local Bytex_ExtraHats = "78327599218076"
+
+        Reanimate(BytexConvert_HatID, BytexConvert_HatCFrame, BytexConvert_HatLimbWeld, true, -3.15, nil, Bytex_ExtraHats)
+
+        runScript('goner')
+    end,
+})
+
+scr:button({
+
+    Name = "Baseball Bat",
+
+    Callback = function()
+        local BytexConvert_HatID = 7063113820
+        local BytexConvert_HatCFrame = CFrame.new(0, -0.6, -1.3) * CFrame.Angles(math.rad(-90), math.rad(-90), math.rad(0))
+        local BytexConvert_HatLimbWeld = "Right Arm"
+
+        Reanimate(BytexConvert_HatID, BytexConvert_HatCFrame, BytexConvert_HatLimbWeld, true)
+
+        runScript('baseball bat')
+    end,
+})
 --[[
 
     //  EXTRA  \\
@@ -568,7 +597,7 @@ bytexgui:Notification{
     Duration = 5,
 }
 
-bytexgui:set_status("version 1.09")
+bytexgui:set_status("version 1.10")
 
 wait(1)
 

@@ -1,25 +1,9 @@
--- Baseball Bat Script for Bytex (R6)
--- Hat Required: roblox.com/catalog/7063113820/Aluminium-Baseball-Bat
-
--- Disable Bytex's default animations to avoid conflict
-local Global = (getgenv and getgenv()) or shared
-if not Global.GelatekReanimateConfig then
-    Global.GelatekReanimateConfig = {}
-end
-Global.GelatekReanimateConfig.AnimationsDisabled = true
-Global.GelatekReanimateConfig.AlignReanimate = true
-
--- Reanimate with the hat
-local hatID = 7063113820
-local hatCFrame = CFrame.new(0.9, 0.7, -1) * CFrame.Angles(math.rad(-90), math.rad(45), 0)
-Reanimate(hatID, hatCFrame, "Right Arm", false, nil, nil, nil)
-
-wait(0.5)
+-- Baseball Bat - Pure Animation (R6)
+-- Relies on Bytex reanimated character. No config changes.
 
 local char = game.Players.LocalPlayer.Character
 if not char then return end
 
--- Get R6 joints (the fake rig from Bytex)
 local root = char:FindFirstChild("HumanoidRootPart")
 local torso = char:FindFirstChild("Torso")
 if not (root and torso) then return end
@@ -32,7 +16,6 @@ local LH = torso:FindFirstChild("Left Hip")
 local NECK = torso:FindFirstChild("Neck")
 if not (RJ and RS and LS and RH and LH and NECK) then return end
 
--- Reset joints
 NECK.C0 = CFrame.new(0, 1, 0)
 NECK.C1 = CFrame.new(0, -0.5, 0)
 RJ.C0 = CFrame.new(0, 0, 0)

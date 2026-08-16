@@ -405,7 +405,7 @@ scr:button({
 scr:button({
     Name = "Elio Blasio (broken)",
     Callback = function()
-        local BytexConvert_HatID = 4933294084
+        local BytexConvert_HatID = 100171532179089
         local BytexConvert_HatCFrame = CFrame.new(0, -1.2, -0.6) * CFrame.Angles(math.rad(-40), math.rad(-90) , 0)
         local BytexConvert_HatLimbWeld = "Right Arm"
 
@@ -419,7 +419,7 @@ scr:button({
 scr:button({
     Name = "Trap Rifle (broken too)",
     Callback = function()
-        local BytexConvert_HatID = 13820315965
+        local BytexConvert_HatID = 97794328990149
         local BytexConvert_HatCFrame = CFrame.new(0, -1.5, -0.6) * CFrame.Angles(math.rad(-50), math.rad(90) , 0)
         local BytexConvert_HatLimbWeld = "Right Arm"
 

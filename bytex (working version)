@@ -593,7 +593,7 @@ scr:button({
 
 bytexgui:Notification{
     Title = "Welcome to Bytex!",
-    Text = "Scripts and customization converted/made by 2faint. Reanimation made by Gelatek",
+    Text = "Scripts and customization converted/made by 2faint. help by coils",
     Duration = 5,
 }
 
@@ -601,14 +601,14 @@ bytexgui:set_status("version 1.10")
 
 wait(1)
 
-if game.GameId ~= 6016588693 then
+if game.GameId ~= 123974602339071 then
     bytexgui:Prompt{
         Followup = false,
         Title = "Warning",
         Text = "This script may not work in this game. Click OK if you want to be teleported into Just a baseplate",
         Buttons = {
             ok = function()
-                game:GetService("TeleportService"):Teleport(17574618959, game.Players.LocalPlayer)
+                game:GetService("TeleportService"):Teleport(123974602339071, game.Players.LocalPlayer)
             end,
             cancel = function()
             end

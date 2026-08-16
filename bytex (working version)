@@ -232,7 +232,7 @@ local Global = (getgenv and getgenv()) or shared
             end
         end
 
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/bytexlol/bytexreanimation/refs/heads/main/reanimate.lua"))()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/jetray-files/Bytex/refs/heads/main/reanimate"))()
         
         wait(0.5)
         bytexgui:Notification{

@@ -1,4 +1,3 @@
-
 local Player = game.Players.LocalPlayer
 local UserInputService = game:GetService("UserInputService");local Mouse = Player:GetMouse()
 do
@@ -560,6 +559,7 @@ Mouse.KeyDown:connect(function(Press)
 						end
 						pcall(function()
 							if Mouse.Target.Parent:FindFirstChildOfClass("Humanoid") then
+								-- Mouse.Target.Parent:FindFirstChildOfClass("Humanoid"):TakeDamage(math.random(3,7))
 							end
 						end)
 					end
@@ -574,6 +574,7 @@ Mouse.KeyDown:connect(function(Press)
 						RIGHTARMLERP.C0 = RIGHTARMLERP.C0:lerp(CFrame.new(-1, 0.1 + .4 * math.sin(sine), 0.4) * CFrame.Angles(math.rad(-90), math.rad(-60), math.rad(0)), 0.25)
 						pcall(function()
 							if Mouse.Target.Parent:FindFirstChildOfClass("Humanoid") then
+								-- Mouse.Target.Parent:FindFirstChildOfClass("Humanoid"):TakeDamage(1)
 							end
 						end)
 					elseif not shooting then
@@ -887,5 +888,5 @@ if game.Players.LocalPlayer.Character:FindFirstChild("Accessory (modelAccessory)
 		end
 	end
 else
-	sendNotification("hello", 7)
+	sendNotification("yo i recommend using the hats for this script, type \"eliobasio-h\" in da cmd bar", 7)
 end

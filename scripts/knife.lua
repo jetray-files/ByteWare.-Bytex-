@@ -1,3 +1,6 @@
+--[[
+	WARNING: Heads up! This script has not been verified by ScriptBlox. Use at your own risk!
+]]
 local p = game.Players.LocalPlayer
 spawn(function() 
 fe=workspace.FilteringEnabled
@@ -8,7 +11,7 @@ local char = p.Character
 local hed = char.Head
 local hes = game.Players.LocalPlayer.Character.Humanoid
 
-Class_Name=string.reverse"ihS-ihS yB tidE "
+Class_Name=string.reverse"adosgg yB tidE "
 -- Edit more !
 
 
@@ -498,7 +501,7 @@ end
 wowgoodphysOCS = true --if false then says that the game has shitty physics
 if "workspace.FilteringEnabled == false" then
 	if wowgoodphysOCS then
-		notify('Press Z to equip. Created by mustardfoot and Tollonis.',true)
+		notify('Press Z to equip. edit by ggsoda.',true)
 	else
 		notify('(this game is really old or something and has the shitty physics so a lot of things wont work sorry) Press Z to equip. Created by mustardfoot and Tollonis.',true)
 	end
@@ -1508,6 +1511,7 @@ function spawned()
 	local grabbed = nil
 	local grabweld = nil
 	local aidsificating = nil
+	local followBP = nil -- BodyPosition for following grabbed player
 	player.CharacterAdded:connect(function()
 		if usable then
 			usable = false
@@ -1728,6 +1732,7 @@ function spawned()
 		working = false
 	end
 
+	-- reboot mode stays unchanged (uses pink toy model)
 	function reboot()
 		blademode = "reboot"
 		working = true
@@ -2836,39 +2841,16 @@ function spawned()
 		working = false
 	end
 
-	-- === KATANA MODE - MODEL REMOVED, ONLY SIMPLE BLADE ===
+	-- === KATANA MODE - NO MODELS, JUST FUNCTIONALITY ===
 	function katanamode()
 		blademode = "katana"
-		-- Just a simple blade for touch detection
-		local blade = Instance.new("Part")
-		blade.Size = Vector3.new(0.2, 2, 0.1)
-		blade.BrickColor = BrickColor.new("Dark stone grey")
-		blade.Material = Enum.Material.Metal
-		blade.CanCollide = false
-		blade.Anchored = false
-		blade.Name = "blade"
-		blade.Parent = handle
-		local weld = Instance.new("Weld", blade)
-		weld.Part0 = blade
-		weld.Part1 = handle
-		weld.C1 = CFrame.new(1.2, 0, 0) * CFrame.Angles(0, 0, 0)
+		-- No parts added; the handle itself is used.
 	end
 
-	-- === KNIFE MODE - MODEL REMOVED, ONLY SIMPLE BLADE ===
+	-- === KNIFE MODE - NO MODELS ===
 	function knifemode()
 		blademode = "knife"
-		local blade = Instance.new("Part")
-		blade.Size = Vector3.new(0.2, 1.2, 0.1)
-		blade.BrickColor = BrickColor.new("Dark stone grey")
-		blade.Material = Enum.Material.Metal
-		blade.CanCollide = false
-		blade.Anchored = false
-		blade.Name = "blade"
-		blade.Parent = handle
-		local weld = Instance.new("Weld", blade)
-		weld.Part0 = blade
-		weld.Part1 = handle
-		weld.C1 = CFrame.new(0.7, 0, 0) * CFrame.Angles(0, 0, 0)
+		-- No parts added.
 	end
 
 	-- GUN MODE COMPLETELY REMOVED
@@ -3296,112 +3278,6 @@ function spawned()
 		working = false
 	end
 
-	function begoneTHOUGHT()
-		working = true
-		pcall(function()
-			local thott = Instance.new("Sound", char)
-			thott.SoundId = "rbxassetid://373066560"
-			thott.Volume = 10
-			thott.TimePosition = 0.5
-			thott.PlaybackSpeed = 1
-			thott.EmitterSize = player.CameraMaxZoomDistance+1
-			thott.MaxDistance = player.CameraMaxZoomDistance+1
-			thott:Play()
-
-			local rweld = Instance.new("Weld", char["Right Arm"])
-			local tweld = Instance.new("Weld", char.HumanoidRootPart)
-			rweld.Part0 = char["Torso"]
-			rweld.Part1 = char["Right Arm"]
-			rweld.C0 = CFrame.new(1.5, 0, 0)
-			tweld.Part0 = char.HumanoidRootPart
-			tweld.Part1 = char.Torso
-
-			local coru=coroutine.wrap(function()
-				lerp(rweld,rweld.C0,CFrame.new(1.5, 0, 0) * CFrame.Angles(math.rad(60), math.rad(0), math.rad(0)),0.25)
-			end)
-			coru()
-			lerp(tweld,tweld.C0,CFrame.new(0, 0, 0) * CFrame.Angles(math.rad(0),math.rad(-45),math.rad(0)), 0.25)
-
-			wait(0.5)
-			local thote = Instance.new("Sound", char)
-			thote.SoundId = "rbxassetid://972134931"
-			thote.Volume = 10
-			thote:Play()
-
-
-
-			local coru=coroutine.wrap(function()
-				lerp(rweld,rweld.C0,CFrame.new(2, 0.5, 0) * CFrame.Angles(math.rad(0), math.rad(0), math.rad(90)),0.04)
-			end)
-			coru()
-			lerp(tweld,tweld.C0,CFrame.new(0, 0, 0) * CFrame.Angles(math.rad(0),math.rad(90),math.rad(0)), 0.04)
-			wait(0.04)
-			local ree = Instance.new('Part',workspace)
-			ree.Shape = Enum.PartType.Cylinder
-			ree.CanCollide = false
-			ree.Anchored = false
-			ree.Size = Vector3.new(0.5,2,2)
-			ree.TopSurface = Enum.SurfaceType.Smooth
-			ree.BottomSurface = Enum.SurfaceType.Smooth
-			ree.Transparency = 0.8
-			ree.Material =Enum.Material.Neon
-			ree.BrickColor = BrickColor.new('Toothpaste')
-			ree.CFrame = handle.CFrame*CFrame.Angles(0,0,math.rad(90))
-			ree:BreakJoints()
-			local reee = Instance.new("Sound", ree)
-			reee.SoundId = "rbxassetid://138677306"
-			reee:Play()
-			local heck = Instance.new('BodyVelocity',ree)
-			heck.Velocity = ree.CFrame.rightVector*50
-			heck.MaxForce = Vector3.new(math.huge,math.huge,math.huge)
-			local coru=coroutine.wrap(function()
-				for i=1,21 do
-					local cf = ree.CFrame
-					ree.Size = ree.Size+Vector3.new(0,2,2)
-					ree.CFrame = cf
-					wait()
-				end
-				for i=1,4 do
-					local cf = ree.CFrame
-					ree.Size = ree.Size+Vector3.new(0,2,2)
-					ree.CFrame = cf
-					ree.Transparency = ree.Transparency + 0.05
-					wait()
-				end
-				ree:Destroy()
-			end)
-			coru()
-			ree.Touched:connect(function(hit)
-				if hit.Parent and hit.Parent ~= char and hit.Parent:FindFirstChildOfClass('Humanoid') then
-					hit.Parent:FindFirstChildOfClass('Humanoid').Health = 100
-					ragdollpart(hit.Parent,"Head")
-				end
-			end)
-			wait(0.5)
-			local coru=coroutine.wrap(function()
-				lerp(rweld,rweld.C0,CFrame.new(1.5, 0, 0) * CFrame.Angles(math.rad(0), math.rad(0), math.rad(0)),0.8)
-			end)
-			coru()
-			lerp(tweld,tweld.C0,CFrame.new(0, 0, 0) * CFrame.Angles(math.rad(0),math.rad(0),math.rad(0)), 0.8)
-
-			rweld:Destroy()
-			tweld:Destroy()
-			if rightclone and char:FindFirstChild('Right Arm') and char:FindFirstChild('Torso') then
-				local clone = rightclone:Clone()
-				clone.Part0 = char.Torso
-				clone.Part1 = char["Right Arm"]
-				clone.Parent = char.Torso
-			end
-			if torsoclone and char:FindFirstChild('Torso') and char:FindFirstChild('HumanoidRootPart') then
-				local clone = torsoclone:Clone()
-				clone.Part0 = char.HumanoidRootPart
-				clone.Part1 = char.Torso
-				clone.Parent = char.HumanoidRootPart
-			end
-		end)
-		working = false
-	end
-
 	function katanaswing()
 		working = true
 		pcall(function()
@@ -3481,353 +3357,28 @@ function spawned()
 		working = false
 	end
 
+	-- THROW NOW DROPS (RELEASE) WITHOUT LAUNCHING
 	function throw()
 		working = true
 		pcall(function()
-			local rweld = char["Right Arm"]:FindFirstChild("Weld")
-			local lweld = char["Left Arm"]:FindFirstChild("Weld")
-			local tweld = Instance.new("Weld", char.HumanoidRootPart)
-			tweld.Part0 = char.HumanoidRootPart
-			tweld.Part1 = char.Torso
-			local throwsound = Instance.new("Sound", char.Head)
-			throwsound.SoundId = "rbxassetid://158037267"
-			throwsound.PlaybackSpeed = 1
-
-			local cor = coroutine.wrap(function()
-				lerp(tweld,tweld.C0,CFrame.new(0, 0, 0) * CFrame.Angles(0, math.rad(-30), 0),0.04)
-			end)
-			local cor2 = coroutine.wrap(function()
-				lerp(rweld,rweld.C0,CFrame.new(1.5, 0.15, 0.4) * CFrame.Angles(0, math.rad(-30), math.rad(15)),0.04)
-			end)
-			cor()
-			cor2()
-			grabweld:Remove()
-			throwsound:Play()
-
-			local throwvel = Instance.new("BodyThrust")
-			throwvel.Force = Vector3.new(0, 3000, -2000)
-			pcall(function()
-				throwvel.Parent = grabbed.Torso
-			end)
-			pcall(function()
-				throwvel.Parent = grabbed.UpperTorso
-			end)
-
-			lerp(lweld,lweld.C0,CFrame.new(-1.3, 0.7, -1) * CFrame.Angles(0, math.rad(-70), math.rad(-105)),0.04)
-			wait(0.15)
-			throwvel:Remove()
-			local cor = coroutine.wrap(function()
-				lerp(lweld,lweld.C0,CFrame.new(-1.5, 0, 0) * CFrame.Angles(0, 0, 0),0.08)
-			end)
-			local cor2 = coroutine.wrap(function()
-				lerp(rweld,rweld.C0,CFrame.new(1.5, 0, 0) * CFrame.Angles(0, 0, 0),0.08)
-			end)
-			cor()
-			cor2()
-			lerp(tweld,tweld.C0,CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0),0.08)
-			lweld:Remove()
-			rweld:Remove()
-			tweld:Remove()
-			if rightclone and char:FindFirstChild('Right Arm') and char:FindFirstChild('Torso') then
-				local clone = rightclone:Clone()
-				clone.Part0 = char.Torso
-				clone.Part1 = char["Right Arm"]
-				clone.Parent = char.Torso
-			end
-			if leftclone and char:FindFirstChild('Left Arm') and char:FindFirstChild('Torso') then
-				local clone = leftclone:Clone()
-				clone.Part0 = char.Torso
-				clone.Part1 = char["Left Arm"]
-				clone.Parent = char.Torso
-			end
-			if torsoclone and char:FindFirstChild('Torso') and char:FindFirstChild('HumanoidRootPart') then
-				local clone = torsoclone:Clone()
-				clone.Part0 = char.HumanoidRootPart
-				clone.Part1 = char.Torso
-				clone.Parent = char.HumanoidRootPart
-			end
-			local lolgrabbed = grabbed
-			spawn(function()
-				wait(2)
-				unstun(lolgrabbed)
-			end)
+			-- Just release the grab, no physics force
+			release()
 		end)
-		grabbed = nil
 		working = false
 	end
 
 	function whoosh(vroom)
-		vroom.Parent = workspace
-		vroom.Name = "Projectile"
-		vroom.CFrame = CFrame.new(char.Head.CFrame.p,mouse.Hit.p)*CFrame.Angles(math.rad(0),math.rad(90),math.rad(0))
-		vroom.Anchored = true
-		vroom.Velocity = Vector3.new(0,0,0)
-		vroom.RotVelocity = Vector3.new(0,0,0)
-		vroom.Anchored = false
-		game:GetService('Debris'):AddItem(vroom,10)
-		local flyy = Instance.new('BodyVelocity',vroom)
-		flyy.Velocity = vroom.CFrame.rightVector*200
-		local touched = false
-		for i,v in pairs(vroom:GetChildren()) do
-			if v:IsA('BasePart') then
-				v.Touched:connect(function(hit)
-					local pos = vroom.CFrame
-					if touched == false then
-						if hit and hit.Parent and hit.Transparency ~= 1 and hit.Parent:FindFirstChildOfClass('Humanoid') and hit.Parent~= char then
-							touched = true
-							local before = hit.Anchored
-							vroom.Anchored = true
-							vroom.Velocity = Vector3.new(0,0,0)
-							vroom.RotVelocity = Vector3.new(0,0,0)
-							vroom.CFrame = vroom.CFrame-(vroom.CFrame.rightVector)
-							hit.Anchored = true
-							flyy:Destroy()
-							pcall(function()
-								local weld = Instance.new('Weld',hit)
-								weld.Part0 = hit
-								weld.Part1 = vroom
-								weld.C0 = hit.CFrame:toObjectSpace(vroom.CFrame)
-								local ayybleed = Instance.new('Part',hit)
-								ayybleed.Size = Vector3.new(0.2,0.2,0.2)
-								ayybleed.BrickColor = BrickColor.new('Maroon')
-								ayybleed.Material = Enum.Material.SmoothPlastic
-								ayybleed.Name = "ayybleed"
-								ayybleed.CanCollide = false
-								ayybleed.Transparency = 1
-								ayybleed.CFrame = hit.CFrame
-								ayybleed:BreakJoints()
-								local attachment1 = Instance.new('Attachment',ayybleed)
-								local attachment0 = Instance.new('Attachment',hit)
-								for i,v in pairs(vroom:GetChildren()) do
-									if v.Name == "blade" and v.Size == Vector3.new(0.23, 1.19, 0.1) then
-										v.Name = "REEEE"
-									end
-								end
-								attachment1.Orientation = vroom["REEEE"].Orientation+Vector3.new(90,0,0)
-								attachment0.Position = hit.CFrame:toObjectSpace(vroom["REEEE"].CFrame).p-(hit.CFrame:toObjectSpace(vroom["REEEE"].CFrame).upVector)
-								if attachment0 and attachment1 then
-									local constraint = Instance.new("HingeConstraint")
-									constraint.Attachment0 = attachment0
-									constraint.Attachment1 = attachment1
-									constraint.LimitsEnabled = true
-									constraint.UpperAngle = 0
-									constraint.LowerAngle = 0
-									constraint.Parent = attachment0
-								end
-								local bleedBLEED= coroutine.wrap(function()
-									bleed(ayybleed)
-								end)
-								bleedBLEED()
-								if hit.Name ~= "Head" and hit.Name ~= "UpperTorso" and hit.Name ~= "Torso" and hit.Name ~= "LowerTorso" then
-									game:GetService('Debris'):AddItem(ayybleed,7.5)
-								end
-							end)
-							hit.Anchored = before
-							vroom.Anchored = false
-							vroom.CanCollide = true
-							pcall(function()
-								vroom:FindFirstChildOfClass('Trail'):Destroy()
-							end)
-							for i,v in pairs(vroom:GetChildren()) do
-								if v:IsA('BasePart') then
-									v.CanCollide = true
-								end
-							end
-							if hit.Name == "Head" or hit.Name == "UpperTorso" or hit.Name == "Torso" or hit.Name == "LowerTorso" then
-								pcall(function()
-									hit.Parent.HumanoidRootPart:Destroy()
-								end)
-								pcall(function()
-									ragdollpart(hit.Parent,"Left Arm")
-									ragdollpart(hit.Parent,"Left Leg")
-									ragdollpart(hit.Parent,"Right Arm")
-									ragdollpart(hit.Parent,"Right Leg")
-								end)
-								pcall(function()
-									ragdollpart(hit.Parent,"LeftUpperLeg")
-									ragdollpart(hit.Parent,"RightUpperLeg")
-									ragdollpart(hit.Parent,"LeftUpperArm")
-									ragdollpart(hit.Parent,"RightUpperArm")
-								end)
-								spawn(function()
-									wait(5)
-									ragdollpart(hit.Parent,"Head")
-								end)
-							else
-								pcall(function()
-									ragdollpart(hit.Parent,hit.Name)
-								end)
-							end
-						elseif hit and hit.CanCollide == true and hit.Parent and hit.Parent ~= char then
-							touched = true
-							local before = hit.Anchored
-							vroom.Anchored = true
-							vroom.Velocity = Vector3.new(0,0,0)
-							vroom.RotVelocity = Vector3.new(0,0,0)
-							hit.Anchored = true
-							flyy:Destroy()
-							vroom.CFrame = vroom.CFrame-vroom.CFrame.rightVector
-							pcall(function()
-								local weld = Instance.new('Weld',hit)
-								weld.Part0 = hit
-								weld.Part1 = vroom
-								weld.C0 = hit.CFrame:toObjectSpace(vroom.CFrame)
-							end)
-							pcall(function()
-								vroom:FindFirstChildOfClass('Trail'):Destroy()
-							end)
-							hit.Anchored = before
-							vroom.Anchored = false
-						end
-					end
-				end)
-			end
-		end
+		-- Not used anymore (fling removed)
 	end
 
 	function fling()
-		working = true
-		pcall(function()
-			local rweld = Instance.new("Weld", char["Right Arm"])
-			local lweld = Instance.new("Weld", char["Left Arm"])
-			rweld.Part0 = char["Torso"]
-			rweld.Part1 = char["Right Arm"]
-			rweld.C0 = CFrame.new(1.5, 0, 0)
-			lweld.Part0 = char.Torso
-			lweld.Part1 = char["Left Arm"]
-			lweld.C0 = CFrame.new(-1.5, 0, 0)
-			local tweld = Instance.new("Weld", char.HumanoidRootPart)
-			tweld.Part0 = char.HumanoidRootPart
-			tweld.Part1 = char.Torso
-
-			local at1 = Instance.new("Attachment", handle)
-			local at2 = Instance.new("Attachment", handle)
-			at1.Visible = false
-			at1.Position = Vector3.new(2, 0, 0)
-			at2.Visible = false
-			at2.Position = Vector3.new(-0.3, 0, 0)
-
-			local trail = Instance.new("Trail", handle)
-			trail.Color = ColorSequence.new({ColorSequenceKeypoint.new(0, Color3.fromRGB(255, 255, 255)), ColorSequenceKeypoint.new(1, Color3.fromRGB(255, 255, 255))})
-			trail.LightEmission = 0.25
-			trail.Transparency = NumberSequence.new({NumberSequenceKeypoint.new(0, 0.75), NumberSequenceKeypoint.new(1, 1)})
-			trail.Lifetime = 0.10
-			trail.MinLength = 0.05
-			trail.Attachment0 = at1
-			trail.Attachment1 = at2
-
-			local cor = coroutine.wrap(function()
-				lerp(rweld,rweld.C0,CFrame.new(1.75, 0, 0) * CFrame.Angles(0, math.rad(0), math.rad(45)),0.07)
-			end)
-			cor()
-			lerp(lweld,lweld.C0,CFrame.new(-1.5, 0, -0.5) * CFrame.Angles(math.rad(45), math.rad(0), math.rad(0)),0.07)
-
-			local cor = coroutine.wrap(function()
-				lerp(rweld,rweld.C0,CFrame.new(1.75, 1, 0.25) * CFrame.Angles(math.rad(35), math.rad(0), math.rad(150)),0.07)
-			end)
-			local cor2 = coroutine.wrap(function()
-				lerp(tweld,tweld.C0,CFrame.new(0, 0, 0) * CFrame.Angles(0, math.rad(-45), math.rad(0)),0.07)
-			end)
-			local cor3 = coroutine.wrap(function()
-				lerp(hweld,hweld.C0,CFrame.new(0, -2.5, 0) * CFrame.Angles(math.rad(90),math.rad(90), 0),0.12)
-			end)
-			cor()
-			cor2()
-			cor3()
-			lerp(lweld,lweld.C0,CFrame.new(-1.75, 0.5, -0.5) * CFrame.Angles(math.rad(90), math.rad(0), math.rad(-45)),0.07)
-			wait(0.2)
-
-			local cor = coroutine.wrap(function()
-				lerp(rweld,rweld.C0,CFrame.new(1.5, 1, 0.25) * CFrame.Angles(math.rad(0), math.rad(0), math.rad(170)),0.03)
-			end)
-			local cor2 = coroutine.wrap(function()
-				lerp(tweld,tweld.C0,CFrame.new(0, 0, 0) * CFrame.Angles(0, math.rad(0), math.rad(0)),0.03)
-			end)
-			cor()
-			cor2()
-			lerp(lweld,lweld.C0,CFrame.new(-1, 0, -0.45) * CFrame.Angles(math.rad(45), math.rad(0), math.rad(45)),0.03)
-
-			local cor = coroutine.wrap(function()
-				lerp(rweld,rweld.C0,CFrame.new(1.5, 0.5, -0.5) * CFrame.Angles(math.rad(0), math.rad(60), math.rad(90)),0.03)
-			end)
-			local cor2 = coroutine.wrap(function()
-				lerp(tweld,tweld.C0,CFrame.new(0, 0, 0) * CFrame.Angles(0, math.rad(45), math.rad(0)),0.01)
-			end)
-			cor()
-			cor2()
-			whoosh(handle:Clone())
-			for i, v in pairs(handle:GetChildren()) do
-				if v:IsA("Part") then
-					v.Transparency = 1
-				end
-			end
-			handle.Transparency = 1
-			trail:Remove()
-			at1:Remove()
-			at2:Remove()
-			lerp(lweld,lweld.C0,CFrame.new(-1.5, 0, 0) * CFrame.Angles(math.rad(45), math.rad(0), math.rad(0)),0.01)
-			local cor = coroutine.wrap(function()
-				lerp(rweld,rweld.C0,CFrame.new(0.5, 0.4, -1) * CFrame.Angles(math.rad(0), math.rad(180), math.rad(75)),0.04)
-			end)
-			local cor2 = coroutine.wrap(function()
-				lerp(tweld,tweld.C0,CFrame.new(0, 0, 0) * CFrame.Angles(0, math.rad(55), math.rad(0)),0.04)
-			end)
-			cor()
-			cor2()
-			lerp(lweld,lweld.C0,CFrame.new(-1.5, 0, 0) * CFrame.Angles(math.rad(45), math.rad(0), math.rad(0)),0.04)
-			wait(0.2)
-
-			local cor = coroutine.wrap(function()
-				lerp(rweld,rweld.C0,CFrame.new(1.5, 0, 0) * CFrame.Angles(math.rad(0), math.rad(0), math.rad(0)),0.07)
-			end)
-			local cor2 = coroutine.wrap(function()
-				lerp(tweld,tweld.C0,CFrame.new(0, 0, 0) * CFrame.Angles(0, math.rad(0), math.rad(0)),0.07)
-			end)
-			cor()
-			cor2()
-			lerp(lweld,lweld.C0,CFrame.new(-1.5, 0, 0) * CFrame.Angles(math.rad(0), math.rad(0), math.rad(0)),0.07)
-
-			for i, v in pairs(handle:GetChildren()) do
-				if v:IsA("Part") then
-					v.Transparency = 0
-				end
-			end
-			handle.Transparency = 0
-			hweld.C0 = CFrame.new(0, -1, 0) * CFrame.Angles(math.rad(-180),math.rad(-90), 0)
-
-			lweld:Remove()
-			rweld:Remove()
-			tweld:Remove()
-
-			if torsoclone and char:FindFirstChild("Torso") and char:FindFirstChild("HumanoidRootPart") then
-				local clone = torsoclone:Clone()
-				clone.Part0 = char.HumanoidRootPart
-				clone.Part1 = char.Torso
-				clone.Parent = char.HumanoidRootPart
-			end
-			if leftclone and char:FindFirstChild('Left Arm') and char:FindFirstChild('Torso') then
-				local clone = leftclone:Clone()
-				clone.Part0 = char.Torso
-				clone.Part1 = char["Left Arm"]
-				clone.Parent = char.Torso
-			end
-			if rightclone and char:FindFirstChild('Right Arm') and char:FindFirstChild('Torso') then
-				local clone = rightclone:Clone()
-				clone.Part0 = char.Torso
-				clone.Part1 = char["Right Arm"]
-				clone.Parent = char.Torso
-			end
-		end)
-		working = false
+		-- Removed entirely
 	end
 
 	function kill()
 		working = true
 		pcall(function()
-			-- REMOVED: all health reduction and death logic
-			-- Keep only the visual part (sounds, blood, ragdoll)
-			notify("Kill mode disabled (no damage)")
-			-- Still do the ragdoll and blood for visual effect
+			-- No damage, only visual effects and ragdoll
 			local rweld = char["Right Arm"]:FindFirstChild("Weld")
 			local lweld = char["Left Arm"]:FindFirstChild("Weld")
 			local tweld = Instance.new("Weld", char.HumanoidRootPart)
@@ -3997,7 +3548,6 @@ function spawned()
 				clone.Part1 = char["Right Arm"]
 				clone.Parent = char.Torso
 			end
-			-- REMOVED: health reduction loop and death
 			throwsound:Remove()
 			killsound:Remove()
 		end)
@@ -4008,9 +3558,17 @@ function spawned()
 	function release()
 		working = true
 		pcall(function()
+			-- Remove follow BodyPosition
+			if followBP then
+				followBP:Destroy()
+				followBP = nil
+			end
 			unstun(grabbed)
 			grabbed = nil
-			grabweld:Destroy()
+			if grabweld then
+				grabweld:Destroy()
+				grabweld = nil
+			end
 			removewelds(char["Right Arm"])
 			removewelds(char["Left Arm"])
 			local rweld = Instance.new("Weld", char["Right Arm"])
@@ -4201,23 +3759,19 @@ function spawned()
 					notify()
 					katanaE()
 				elseif blademode == "knife" then
+					-- Throw now drops (release)
 					mode = "throw"
 					notify("Mode changed to "..mode)
 				end
 			elseif key == "f" then
-				if blademode == "handle" then
-					notify([[BEGONE    
-	THOT]])
-					begoneTHOUGHT()
-				elseif blademode == "knife" then
+				-- BEGONE REMOVED - F key does nothing in handle mode
+				if blademode == "knife" then
 					mode = "kill"
 					notify("Mode changed to "..mode)
 				end
 			elseif key == "t" then
-				if blademode == "knife" then
-					mode = "fling"
-					notify("Mode changed to "..mode)
-				end
+				-- Removed fling, do nothing
+				-- Could map to nothing or notify
 			end
 		end
 		if key == "m" and sounding == false then
@@ -4271,122 +3825,9 @@ function spawned()
 		if child:IsA('BasePart') then
 			child.CanCollide = false
 			if child.Name == "blade" then
+				-- No blade parts are created anymore, so this won't run.
 				child.Touched:connect(function(hit)
-					if blademode == "katana" and swinging then
-						if gettingeem then
-							if goteem == nil then
-								if hit.Parent:FindFirstChildOfClass('Humanoid') and hit.Parent:FindFirstChildOfClass('Humanoid').Health > 0 and hit.Parent ~= char then
-									local sounn = Instance.new("Sound", char.Torso)
-									local lipp = math.random(1, 3)
-									if lipp == 1 then sounn.SoundId = "rbxassetid://444667844" end
-									if lipp == 2 then sounn.SoundId = "rbxassetid://444667824" end
-									if lipp == 3 then sounn.SoundId = "rbxassetid://444667859" end
-									sounn:Play()
-									goteem = hit.Parent
-									pcall(function()
-										goteem.HumanoidRootPart:Destroy()
-									end)
-									pcall(function()
-										ragdollpart(goteem,"Right Arm")
-										ragdollpart(goteem,"Right Leg")
-										ragdollpart(goteem,"Left Arm")
-										ragdollpart(goteem,"Left Leg")
-									end)
-									pcall(function()
-										ragdollpart(goteem,"RightUpperArm")
-										ragdollpart(goteem,"RightUpperLeg")
-										ragdollpart(goteem,"LeftUpperArm")
-										ragdollpart(goteem,"LeftUpperLeg")
-									end)
-									pcall(function()
-										local weld = Instance.new('Weld',goteem.Torso)
-										weld.Part0 = goteem.Torso
-										weld.Part1 = handle
-										weld.C0 = CFrame.new(0,0,2)*CFrame.Angles(math.rad(90),0,math.rad(-90))
-									end)
-									pcall(function()
-										local weld = Instance.new('Weld',goteem.UpperTorso)
-										weld.Part0 = goteem.UpperTorso
-										weld.Part1 = handle
-										weld.C0 = CFrame.new(0,0,2)*CFrame.Angles(math.rad(90),0,math.rad(-90))
-									end)
-									pcall(function()
-										local thang = "Torso"
-										if goteem:FindFirstChild('UpperTorso') then
-											thang = "UpperTorso"
-										end
-										local ayybleed = Instance.new('Part',goteem)
-										ayybleed.Size = Vector3.new(0.2,0.2,0.2)
-										ayybleed.BrickColor = BrickColor.new('Maroon')
-										ayybleed.Material = Enum.Material.SmoothPlastic
-										ayybleed.Name = "ayybleed"
-										ayybleed.CanCollide = false
-										ayybleed.Transparency = 1
-										ayybleed.CFrame = goteem[thang].CFrame
-										ayybleed:BreakJoints()
-										local attachment1 = Instance.new('Attachment',ayybleed)
-										attachment1.Position = Vector3.new(0,0,0)
-										attachment1.Orientation = Vector3.new(-90, 0, -90)
-										local attachment0 = Instance.new('Attachment',goteem[thang])
-										if attachment0 and attachment1 then
-											local constraint = Instance.new("HingeConstraint")
-											constraint.Attachment0 = attachment0
-											constraint.Attachment1 = attachment1
-											constraint.LimitsEnabled = true
-											constraint.UpperAngle = 0
-											constraint.LowerAngle = 0
-											constraint.Parent = goteem
-										end
-										local bleedBLEED= coroutine.wrap(function()
-											bleed(ayybleed)
-										end)
-										bleedBLEED()
-									end)
-								end
-							end
-						elseif SLESH then
-
-							if hit.Parent and hit.Parent:FindFirstChildOfClass('Humanoid') and hit.Parent:FindFirstChildOfClass('Humanoid').Health > 0 and hit.Parent ~= char then
-								local sounn = Instance.new("Sound", char.Torso)
-								local lipp = math.random(1, 3)
-								if lipp == 1 then sounn.SoundId = "rbxassetid://444667844" end
-								if lipp == 2 then sounn.SoundId = "rbxassetid://444667824" end
-								if lipp == 3 then sounn.SoundId = "rbxassetid://444667859" end
-								sounn:Play()
-								ragdollpart(hit.Parent,hit.Name,false)
-							end
-						else
-							if hit.Parent:FindFirstChildOfClass('Humanoid') and hit.Parent:FindFirstChildOfClass('Humanoid').Health > 0 and hit.Parent ~= char then
-								local sounn = Instance.new("Sound", char.Torso)
-								local lipp = math.random(1, 3)
-								if lipp == 1 then sounn.SoundId = "rbxassetid://444667844" end
-								if lipp == 2 then sounn.SoundId = "rbxassetid://444667824" end
-								if lipp == 3 then sounn.SoundId = "rbxassetid://444667859" end
-								sounn:Play()
-								swinging = false
-								ragdollpart(hit.Parent,"Head",true,false)
-							end
-						end
-					elseif blademode == "knife" then
-						if grabbing == true and grabbed == nil then
-							if hit.Parent:FindFirstChildOfClass('Humanoid') and hit.Parent:FindFirstChildOfClass('Humanoid').Health > 0 and hit.Parent ~= char then
-								grabbed = hit.Parent
-
-								stun(grabbed)
-
-								local grabwelds = Instance.new("Weld", char.Torso)
-								grabwelds.Part0 = char.Torso
-								pcall(function()
-									grabwelds.Part1 = grabbed.Torso
-								end)
-								pcall(function()
-									grabwelds.Part1 = grabbed.UpperTorso
-								end)
-								grabwelds.C0 = CFrame.new(-0.45, 0, -1)
-								grabweld = grabwelds
-							end
-						end
-					end
+					-- but leave empty
 				end)
 			end
 		elseif child:IsA("Model") or child.Name == "pink toy" then
@@ -4438,16 +3879,13 @@ function spawned()
 			elseif blademode == "knife" then
 				notify()
 				if grabbed == nil then
-					if mode == "fling" then
-						fling()
-					else
-						grab()
-					end
+					-- No fling, so just grab
+					grab()
 				elseif grabbed ~= nil then
 					if mode == "kill" then
 						kill()
 					elseif mode == "throw" then
-						throw()
+						throw() -- drops
 					elseif mode == "release" then
 						release()
 					end

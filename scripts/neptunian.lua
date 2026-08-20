@@ -1,35 +1,9 @@
-writefile("V.mp3", game:HttpGet("https://github.com/ian49972/smth/raw/refs/heads/main/V.mp3"))
+local fortnite = (getgenv and getgenv()) or shared
 
-local Players = game:GetService("Players")
-local player = Players.LocalPlayer
+bytexfesettings = fortnite.neptunian
 
-local sound = Instance.new("Sound")
-sound.SoundId = getcustomasset("V.mp3")
-sound.Volume = 1
-sound.Looped = true
-sound.Parent = workspace
-sound:Play()
-
-local function onCharacterAdded(character)
-	local humanoid = character:WaitForChild("Humanoid")
-
-	humanoid.Died:Connect(function()
-		if sound then
-			sound:Stop()
-			sound:Destroy()
-			sound = nil
-		end
-	end)
-end
-
-if player.Character then
-	onCharacterAdded(player.Character)
-end
-
-player.CharacterAdded:Connect(onCharacterAdded)
-
---- Did actually rework heavily away from original neptunian, and the non-rework neptunian. --NoobyGames12
---- Was supposed to be for the770zone, or VengefulProgram.
+loadstring(game:GetObjects("rbxassetid://5425999987")[1].Source)()
+warn("(not converted by mizt, i just needed his loadlibrary thing) (hes a goat tho)")
 
 warn'Neptune/Neptunian V'
 warn[[Absolutely.
@@ -5164,10 +5138,63 @@ for i,v in pairs(Model0:GetChildren()) do
                 v.Locked = true
 		v.Anchored = false
                 v.CanCollide = false
+		v.Transparency = 1
 	end
 end
 
-local Create = loadstring(game:HttpGet("https://raw.githubusercontent.com/alekguzman91-code/scripts/refs/heads/main/kill2"))().Create
+
+if bytexfesettings.usinghats == true then
+
+mewhenhatid = game:GetObjects("rbxassetid://"..tostring(bytexfesettings.bhatid))[1].Name
+
+Character = game.Players.LocalPlayer.Character
+
+local accessory = Character:FindFirstChild(mewhenhatid)
+local RightArm = Part1
+
+local handle = accessory:FindFirstChild("Handle")
+
+for _, v in ipairs(handle:GetChildren()) do
+    if v:IsA("Weld") or v:IsA("Motor6D") or v:IsA("WeldConstraint") --[[or v:IsA("Mesh") or v:IsA("SpecialMesh")]] then
+        v:Destroy()
+    end
+end
+
+local grip = Instance.new("Part")
+grip.Name = "AccessoryGrip"
+grip.Size = Vector3.new(0.2, 0.2, 0.2)
+grip.Transparency = 1
+grip.CanCollide = false
+grip.Anchored = false
+grip.Parent = Character
+
+local gripWeld = Instance.new("Motor6D")
+gripWeld.Name = "GripWeld"
+gripWeld.Part0 = RightArm
+gripWeld.Part1 = grip
+gripWeld.C0 = bytexfesettings.bcframele
+gripWeld.Parent = grip
+
+local alignPos = Instance.new("AlignPosition")
+alignPos.Attachment0 = Instance.new("Attachment", handle)
+alignPos.Attachment1 = Instance.new("Attachment", grip)
+alignPos.RigidityEnabled = false
+alignPos.Responsiveness = 200
+alignPos.MaxForce = 100000
+alignPos.Parent = handle
+
+local alignOri = Instance.new("AlignOrientation")
+alignOri.Attachment0 = alignPos.Attachment0
+alignOri.Attachment1 = alignPos.Attachment1
+alignOri.MaxTorque = 100000
+alignOri.Responsiveness = 200
+alignOri.Parent = handle
+
+handle.Parent = workspace
+task.wait()
+handle.Parent = accessory
+end
+
 
 plr = game:GetService("Players").LocalPlayer
 char = plr.Character
@@ -5387,7 +5414,7 @@ chat()
 end
 
 
-
+local Create = LoadLibrary("RbxUtility").Create
 
 CFuncs = {	
 	["Part"] = {
@@ -5668,7 +5695,7 @@ function CreateWeld(Parent, Part0, Part1, C0, C1)
   return Weld
 end
 
-Player=game:GetService("Players").LocalPlayer
+Player=game.Players.LocalPlayer
 Character=Player.Character 
 PlayerGui=Player.PlayerGui 
 Backpack=Player.Backpack 
@@ -5721,7 +5748,6 @@ local sine = 0
 local change = 1
 player=nil 
 
-mouse=Player:GetMouse()
 --save shoulders 
 RSH, LSH=nil, nil 
 --welds 
@@ -6013,248 +6039,10 @@ end
  
 
 function Damagefunc(Part, hit, minim, maxim, knockback, Type, Property, Delay, HitSound, HitPitch)
-  if hit.Parent == nil then
-    return
-  end
-  local h = hit.Parent:FindFirstChildOfClass("Humanoid")
-  for _, v in pairs(hit.Parent:children()) do
-    if v:IsA("Humanoid") then
-      h = v
-h.MaxHealth = 100
-    end
-  end
-  if h ~= nil and hit.Parent.Name ~= Character.Name and hit.Parent:FindFirstChild("Torso") ~= nil or h ~= nil and hit.Parent.Name ~= Character.Name and hit.Parent:FindFirstChild("UpperTorso") ~= nil then
-    if hit.Parent:findFirstChild("DebounceHit") ~= nil and hit.Parent.DebounceHit.Value == true then
-      return
-    end
-    local c = Create("ObjectValue")({
-      Name = "creator",
-      Value = game:GetService("Players"),
-      Parent = h
-    })
-    game:GetService("Debris"):AddItem(c, 0.5)
-    if HitSound ~= nil and HitPitch ~= nil then
-      CFuncs.Sound.Create(HitSound, hit, 1, HitPitch)
-    end
-    local Damage = math.random(minim, maxim)
-    local blocked = false
-    local block = hit.Parent:findFirstChild("Block")
-    if block ~= nil and block.className == "IntValue" and block.Value > 0 then
-      blocked = true
-      block.Value = block.Value - 1
-      print(block.Value)
-    end
-    if blocked == false then
-      HitHealth = h.Health
-h.MaxHealth = 100
-      h.Health = h.Health - Damage
-      if HitHealth ~= h.Health and HitHealth ~= 0 and 0 >= h.Health and h.Parent.Name ~= "Hologram" then
-        print("gained kill")
-dmg(h.Parent)
-      end
-      ShowDamage(Part.CFrame * CFrame.new(0, 0, Part.Size.Z / 2).p + Vector3.new(0, 1.5, 0), -Damage, 1.5, Part.BrickColor.Color)
-    else
-      h.Health = h.Health - Damage / 2
-      ShowDamage(Part.CFrame * CFrame.new(0, 0, Part.Size.Z / 2).p + Vector3.new(0, 1.5, 0), -Damage, 1.5, Part.BrickColor.Color)
-    end
-    if Type == "Knockdown" then
-      local hum = hit.Parent.Humanoid
-      hum.PlatformStand = true
-      coroutine.resume(coroutine.create(function(HHumanoid)
-        swait(1)
-        HHumanoid.PlatformStand = false
-      end), hum)
-      local angle = hit.Position - (Property.Position + Vector3.new(0, 0, 0)).unit
-      local bodvol = Create("BodyVelocity")({
-        velocity = angle * knockback,
-        P = 5000,
-        maxForce = Vector3.new(8000, 8000, 8000),
-        Parent = hit
-      })
-      local rl = Create("BodyAngularVelocity")({
-        P = 3000,
-        maxTorque = Vector3.new(500000, 500000, 500000) * 50000000000000,
-        angularvelocity = Vector3.new(math.random(-10, 10), math.random(-10, 10), math.random(-10, 10)),
-        Parent = hit
-      })
-      game:GetService("Debris"):AddItem(bodvol, 0.5)
-      game:GetService("Debris"):AddItem(rl, 0.5)
-    elseif Type == "Normal" then
-      local vp = Create("BodyVelocity")({
-        P = 500,
-        maxForce = Vector3.new(math.huge, 0, math.huge),
-        velocity = Property.CFrame.lookVector * knockback + Property.Velocity / 1.05
-      })
-      if knockback > 0 then
-        vp.Parent = hit.Parent.Torso
-      end
-      game:GetService("Debris"):AddItem(vp, 0.5)
-    elseif Type == "Up" then
-      local bodyVelocity = Create("BodyVelocity")({
-        velocity = Vector3.new(0, 20, 0),
-        P = 5000,
-        maxForce = Vector3.new(8000, 8000, 8000),
-        Parent = hit
-      })
-      game:GetService("Debris"):AddItem(bodyVelocity, 0.5)
-      local bodyVelocity = Create("BodyVelocity")({
-        velocity = Vector3.new(0, 20, 0),
-        P = 5000,
-        maxForce = Vector3.new(8000, 8000, 8000),
-        Parent = hit
-      })
-      game:GetService("Debris"):AddItem(bodyVelocity, 1)
-    elseif Type == "Leech" then
-      local hum = hit.Parent.Humanoid
-      if hum ~= nil then
-        for i = 0, 2 do
-          Effects.Sphere.Create(BrickColor.new("Bright red"), hit.Parent.Torso.CFrame * cn(0, 0, 0) * angles(math.random(-50, 50), math.random(-50, 50), math.random(-50, 50)), 1, 15, 1, 0, 5, 0, 0.02)
-        end
-        Humanoid.Health = Humanoid.Health + 10
-      end
-    elseif Type == "UpKnock" then
-      local hum = hit.Parent.Humanoid
-      hum.PlatformStand = true
-      if hum ~= nil then
-        hitr = true
-      end
-      coroutine.resume(coroutine.create(function(HHumanoid)
-        swait(5)
-        HHumanoid.PlatformStand = false
-        hitr = false
-      end), hum)
-      local bodyVelocity = Create("BodyVelocity")({
-        velocity = Vector3.new(0, 20, 0),
-        P = 5000,
-        maxForce = Vector3.new(8000, 8000, 8000),
-        Parent = hit
-      })
-      game:GetService("Debris"):AddItem(bodyVelocity, 0.5)
-      local bodyVelocity = Create("BodyVelocity")({
-        velocity = Vector3.new(0, 20, 0),
-        P = 5000,
-        maxForce = Vector3.new(8000, 8000, 8000),
-        Parent = hit
-      })
-      game:GetService("Debris"):AddItem(bodyVelocity, 1)
-    elseif Type == "Snare" then
-      local bp = Create("BodyPosition")({
-        P = 2000,
-        D = 100,
-        maxForce = Vector3.new(math.huge, math.huge, math.huge),
-        position = hit.Parent.Torso.Position,
-        Parent = hit.Parent.Torso
-      })
-      game:GetService("Debris"):AddItem(bp, 1)
-    elseif Type == "Slashnare" then
-      Effects.Block.Create(BrickColor.new("Pastel Blue"), hit.Parent.Torso.CFrame * cn(0, 0, 0), 15*4, 15*4, 15*4, 3*4, 3*4, 3*4, 0.07)
-      for i = 1, math.random(4, 5) do
-        Effects.Sphere.Create(BrickColor.new("Teal"), hit.Parent.Torso.CFrame * cn(math.random(-5, 5), math.random(-5, 5), math.random(-5, 5)) * angles(math.random(-50, 50), math.random(-50, 50), math.random(-50, 50)), 1, 15, 1, 0, 5, 0, 0.02)
-      end
-      local bp = Create("BodyPosition")({
-        P = 2000,
-        D = 100,
-        maxForce = Vector3.new(math.huge, math.huge, math.huge),
-        position = hit.Parent.Torso.Position,
-        Parent = hit.Parent.Torso
-      })
-      game:GetService("Debris"):AddItem(bp, 1)
-    elseif Type == "Spike" then
-      CreateBigIceSword(hit.Parent.Torso.CFrame)
-      local bp = Create("BodyPosition")({
-        P = 2000,
-        D = 100,
-        maxForce = Vector3.new(math.huge, math.huge, math.huge),
-        position = hit.Parent.Torso.Position,
-        Parent = hit.Parent.Torso
-      })
-      game:GetService("Debris"):AddItem(bp, 1)
-    elseif Type == "Freeze" then
-      local BodPos = Create("BodyPosition")({
-        P = 50000,
-        D = 1000,
-        maxForce = Vector3.new(math.huge, math.huge, math.huge),
-        position = hit.Parent.Torso.Position,
-        Parent = hit.Parent.Torso
-      })
-      local BodGy = Create("BodyGyro")({
-        maxTorque = Vector3.new(400000, 400000, 400000) * math.huge,
-        P = 20000,
-        Parent = hit.Parent.Torso,
-        cframe = hit.Parent.Torso.CFrame
-      })
-      hit.Parent.Torso.Anchored = true
-      coroutine.resume(coroutine.create(function(Part)
-        swait(1.5)
-        Part.Anchored = false
-      end), hit.Parent.Torso)
-      game:GetService("Debris"):AddItem(BodPos, 3)
-      game:GetService("Debris"):AddItem(BodGy, 3)
-    end
-    local debounce = Create("BoolValue")({
-      Name = "DebounceHit",
-      Parent = hit.Parent,
-      Value = true
-    })
-    game:GetService("Debris"):AddItem(debounce, Delay)
-    c = Instance.new("ObjectValue")
-    c.Name = "creator"
-    c.Value = Player
-    c.Parent = h
-    game:GetService("Debris"):AddItem(c, 0.5)
-  end
+
 end
 function ShowDamage(Pos, Text, Time, Color)
-  local Rate = 0.1
-  local Pos = Pos or Vector3.new(0, 0, 0)
-  local Text = Text or ""
-  local Time = Time or 2
-  local Color = Color or Color3.new(1, 0, 1)
-  local EffectPart = CreatePart(workspace, "SmoothPlastic", 0, 1, BrickColor.new(Color), "Effect", Vector3.new(0, 0, 0))
-  EffectPart.Anchored = true
-  local BillboardGui = Create("BillboardGui")({
-    Size = UDim2.new(3, 0, 3, 0),
-    Adornee = EffectPart,
-    Parent = EffectPart
-  })
-  local TextLabel = Create("TextLabel")({
-    BackgroundTransparency = 1,
-    Size = UDim2.new(1, 0, 1, 0),
-    Text = Text,
-    TextColor3 = Color3.new(1,1,1),
-    TextStrokeColor3 = Color3.new(0,0,0),
-    TextStrokeTransparency = 0.25,
-    TextScaled = true,
-    Font = Enum.Font.Fantasy,
-    TextSize = 24,
-    Parent = BillboardGui
-  })
-  game.Debris:AddItem(EffectPart, Time + 0.1)
-  EffectPart.Parent = game:GetService("Workspace")
-  delay(0, function()
-    local Frames = Time / Rate
-    for Frame = 1, Frames do
-      swait(Rate)
-      local Percent = Frame / Frames
-      TextLabel.Text = Text
-      EffectPart.CFrame = CFrame.new(Pos) + Vector3.new(0, Percent*2, 0)
-    end
-    for Frame = 1, Frames do
-      swait(Rate)
-      local Percent = Frame / Frames
-      TextLabel.Text = Text
-    end
-    for Frame = 1, Frames do
-      swait(Rate)
-      local Percent = Frame / Frames
-      TextLabel.TextTransparency = Percent
-      TextLabel.Text = Text
-      TextLabel.TextStrokeTransparency = Percent
-    end
-    if EffectPart and EffectPart.Parent then
-      EffectPart:Destroy()
-    end
-  end)
+  
 end
 function MagniDamage(Part, magni, mindam, maxdam, knock, Type,Sound)
   for _, c in pairs(workspace:children()) do
@@ -6287,102 +6075,7 @@ end
 ----
 
 function dmg(dude)
-if dude.Name ~= Character then
-local bgf = Instance.new("BodyGyro",dude.Head)
-bgf.CFrame = bgf.CFrame * CFrame.fromEulerAnglesXYZ(math.rad(-90),0,0)
---[[local val = Instance.new("BoolValue",dude)
-val.Name = "IsHit"]]--
-local ds = coroutine.wrap(function()
-dude:WaitForChild("Head"):BreakJoints()
-for i, v in pairs(dude:GetChildren()) do
-if v:IsA("Part") or v:IsA("MeshPart") then
-v.Name = "DEMINISHED"
-CFuncs["Sound"].Create("rbxassetid://763718160", v, 0.75, 1.1)
-CFuncs["Sound"].Create("rbxassetid://782353443", v, 1, 1)
-for i = 0, 1 do
-sphere2(1,"Add",v.CFrame*CFrame.Angles(math.rad(math.random(-360,360)),math.rad(math.random(-360,360)),math.rad(math.random(-360,360))),vt(1,1,1),-0.01,10,-0.01,BrickColor.new("Royal purple"),BrickColor.new("Royal purple").Color)
-end
-end
-end
-wait(0.5)
-targetted = nil
-CFuncs["Sound"].Create("rbxassetid://62339698", char, 0.25, 0.285)
-coroutine.resume(coroutine.create(function()
-for i, v in pairs(dude:GetChildren()) do
-if v:IsA("Accessory") then
-v:Destroy()
-end
-if v:IsA("Humanoid") then
-v:Destroy()
-end
-if v:IsA("CharacterMesh") then
-v:Destroy()
-end
-if v:IsA("Model") then
-v:Destroy()
-end
-if v:IsA("Part") or v:IsA("MeshPart") then
-for x, o in pairs(v:GetChildren()) do
-if o:IsA("Decal") then
-o:Destroy()
-end
-end
-coroutine.resume(coroutine.create(function()
-v.Material = "Neon"
-v.CanCollide = false
-v.Anchored = false
-local bld = Instance.new("ParticleEmitter",v)
-bld.LightEmission = 1
-bld.Texture = "rbxassetid://363275192" ---284205403
-bld.Color = ColorSequence.new(BrickColor.new("Royal purple").Color)
-bld.Rate = 500
-bld.Lifetime = NumberRange.new(1)
-bld.Size = NumberSequence.new({NumberSequenceKeypoint.new(0,2,0),NumberSequenceKeypoint.new(0.8,2.25,0),NumberSequenceKeypoint.new(1,0,0)})
-bld.Transparency = NumberSequence.new({NumberSequenceKeypoint.new(0,0.5,0),NumberSequenceKeypoint.new(0.8,0.75,0),NumberSequenceKeypoint.new(1,1,0)})
-bld.Speed = NumberRange.new(2,5)
-bld.VelocitySpread = 50000
-bld.Rotation = NumberRange.new(-500,500)
-bld.RotSpeed = NumberRange.new(-500,500)
-        local sbs = Instance.new("BodyPosition", v)
-        sbs.P = 3000
-        sbs.D = 1000
-        sbs.maxForce = Vector3.new(50000000000, 50000000000, 50000000000)
-        sbs.position = v.Position + Vector3.new(math.random(-2,2),10 + math.random(-2,2),math.random(-2,2))
-v.Color = BrickColor.new("Royal purple").Color
-coroutine.resume(coroutine.create(function()
-for i = 0, 49 do
-swait(1)
-v:BreakJoints()
-v.Transparency = v.Transparency + 0.02
-end
-v:BreakJoints()
-for i = 0, 4 do
-slash(math.random(10,50)/10,3,true,"Round","Add","Out",v.CFrame*CFrame.Angles(math.rad(math.random(-360,360)),math.rad(math.random(-360,360)),math.rad(math.random(-360,360))),vt(0.01,0.0025,0.01),math.random(10,100)/2500,BrickColor.new("White"))
-end
-block(1,"Add",v.CFrame,vt(0,0,0),0.1,0.1,0.1,BrickColor.new("Royal purple"),BrickColor.new("Royal purple").Color)
-CFuncs["Sound"].Create("rbxassetid://782353117", v, 0.25, 1.2)
-CFuncs["Sound"].Create("rbxassetid://1192402877", v, 0.5, 0.75)
-bld.Speed = NumberRange.new(10,25)
-bld.Drag = 5
-bld.Acceleration = vt(0,2,0)
-wait(0.5)
-bld.Enabled = false
-wait(4)
-coroutine.resume(coroutine.create(function()
-for i = 0, 99 do
-swait()
-v:Destroy()
-dude:Destroy()
-end
-end))
-end))
-end))
-end
-end
-end))
-end)
-ds()
-end
+
 end
 
 function sphere(bonuspeed,type,pos,scale,value,color)
@@ -7440,6 +7133,8 @@ end
 hum.JumpPower = 50
 end
 ------------------
+
+mouse = game.Players.LocalPlayer:GetMouse()
 
 
 local attacktype = 1

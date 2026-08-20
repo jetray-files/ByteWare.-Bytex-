@@ -109,7 +109,7 @@ function Reanimate(BytexConvert_HatID, BytexConvert_HatCFrame, BytexConvert_HatL
             end
         end
 
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/jetray-files/Bytex/refs/heads/main/reanimate"))()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/jetray-files/ByteWare.-Bytex-/refs/heads/main/reanimate"))()
         
         wait(0.5)
         if Bytex.UseHats then
@@ -232,7 +232,7 @@ local Global = (getgenv and getgenv()) or shared
             end
         end
 
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/jetray-files/Bytex/refs/heads/main/reanimate"))()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/jetray-files/ByteWare.-Bytex-/refs/heads/main/reanimate"))()
         
         wait(0.5)
         bytexgui:Notification{
@@ -585,6 +585,21 @@ scr:button({
         runScript('baseball')
     end,
 })
+
+scr:button({
+
+    Name = "Knife",
+
+    Callback = function()
+        local BytexConvert_HatID = 76987834134194
+        local BytexConvert_HatCFrame = CFrame.new(0, -1, -0.5) * CFrame.Angles(math.rad(0), math.rad(0), math.rad(0))
+        local BytexConvert_HatLimbWeld = "Right Arm"
+
+        Reanimate(BytexConvert_HatID, BytexConvert_HatCFrame, BytexConvert_HatLimbWeld, true)
+
+        runScript('knife')
+    end,
+})
 --[[
 
     //  EXTRA  \\
@@ -597,7 +612,7 @@ bytexgui:Notification{
     Duration = 5,
 }
 
-bytexgui:set_status("version 1.13")
+bytexgui:set_status("version 1.14")
 
 wait(1)
 

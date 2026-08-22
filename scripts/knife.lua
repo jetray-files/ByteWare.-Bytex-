@@ -495,7 +495,7 @@ function notify(msg,remove)
 	end)
 	coru()
 end
-wowgoodphysOCS = true --if false then says that the game has shitty physics
+wowgoodphysOCS = true --if false then says that the game has shitty physics (he's right btw)
 if "workspace.FilteringEnabled == false" then
 	if wowgoodphysOCS then
 		notify('Press Z to equip. edit by ggsoda.',true)
@@ -1508,7 +1508,7 @@ function spawned()
 	local grabbed = nil
 	local grabweld = nil
 	local aidsificating = nil
-	local followBP = nil -- BodyPosition for following grabbed player
+	local followBP = nil -- cool asf
 	player.CharacterAdded:connect(function()
 		if usable then
 			usable = false
@@ -1729,11 +1729,11 @@ function spawned()
 		working = false
 	end
 
-	-- reboot mode stays unchanged (uses pink toy model)
+	-- reboot mode stays unchanged (pink tooooiiol)
 	function reboot()
 		blademode = "reboot"
 		working = true
-		-- 1 - pink toy
+		-- its not a pink toy......
 		local obj1 = Instance.new("Model")
 		obj1.Name = "pink toy"
 		obj1.Parent = handle
@@ -2815,7 +2815,7 @@ function spawned()
 		ree.Shape = Enum.PartType.Block
 		ree.Parent = handle
 
-		-- 3 - Mesh
+		-- 3 - GET OUT
 		local ree2 = Instance.new("CylinderMesh")
 		ree2.Parent = ree
 		local thing = Instance.new('BodyPosition',obj9)
@@ -2838,19 +2838,19 @@ function spawned()
 		working = false
 	end
 
-	-- === KATANA MODE - NO MODELS, JUST FUNCTIONALITY ===
+	-- TUFF NO KATANA
 	function katanamode()
 		blademode = "katana"
-		-- No parts added; the handle itself is used.
+		-- ONLY HAT
 	end
 
-	-- === KNIFE MODE - NO MODELS ===
+	--  TUFF NO KNIFE 
 	function knifemode()
 		blademode = "knife"
-		-- No parts added.
+		-- ONLY HAT
 	end
 
-	-- GUN MODE COMPLETELY REMOVED
+	-- NO GUNS ALLOWED
 
 	function raep()
 		working = true
@@ -3354,22 +3354,22 @@ function spawned()
 		working = false
 	end
 
-	-- THROW NOW DROPS (RELEASE) WITHOUT LAUNCHING
+	-- NO THROW
 	function throw()
 		working = true
 		pcall(function()
-			-- Just release the grab, no physics force
+			-- KDJSF
 			release()
 		end)
 		working = false
 	end
 
 	function whoosh(vroom)
-		-- Not used anymore (fling removed)
+		-- HEHEHHEHEHEEHEHEH
 	end
 
 	function fling()
-		-- Removed entirely
+		-- REMOVED
 	end
 
 	function kill()
@@ -3756,19 +3756,19 @@ function spawned()
 					notify()
 					katanaE()
 				elseif blademode == "knife" then
-					-- Throw now drops (release)
+					-- RELASE
 					mode = "throw"
 					notify("Mode changed to "..mode)
 				end
 			elseif key == "f" then
-				-- BEGONE REMOVED - F key does nothing in handle mode
+				-- I REMOVED BEGONE YAY
 				if blademode == "knife" then
 					mode = "kill"
 					notify("Mode changed to "..mode)
 				end
 			elseif key == "t" then
-				-- Removed fling, do nothing
-				-- Could map to nothing or notify
+				-- NO
+				-- please dont look
 			end
 		end
 		if key == "m" and sounding == false then
@@ -3822,9 +3822,9 @@ function spawned()
 		if child:IsA('BasePart') then
 			child.CanCollide = false
 			if child.Name == "blade" then
-				-- No blade parts are created anymore, so this won't run.
+				-- dont look at it bro
 				child.Touched:connect(function(hit)
-					-- but leave empty
+					-- empty
 				end)
 			end
 		elseif child:IsA("Model") or child.Name == "pink toy" then
@@ -3876,7 +3876,7 @@ function spawned()
 			elseif blademode == "knife" then
 				notify()
 				if grabbed == nil then
-					-- No fling, so just grab
+					-- heehehhehehehehhehe
 					grab()
 				elseif grabbed ~= nil then
 					if mode == "kill" then

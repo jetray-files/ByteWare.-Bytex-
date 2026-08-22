@@ -12,7 +12,7 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/jetray-files/ByteWare
 ### 👥 Credits
 * **tniaf**  Original Creator (https://github.com/bytexlol/bytexreanimation) i hope he's well cuz he's inactive since year
   * *Note: You can add him on Discord to tell him to fix Elio Basio and Trap Rifle.*
-* **uhhh the reanimator guy**  Helper
+* **uhhh the reanimator guy (ggcocacola)*  Helper
 
 ### 🌐 Links
 

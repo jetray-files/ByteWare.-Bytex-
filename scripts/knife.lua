@@ -1,6 +1,3 @@
---[[
-	WARNING: Heads up! This script has not been verified by ScriptBlox. Use at your own risk!
-]]
 local p = game.Players.LocalPlayer
 spawn(function() 
 fe=workspace.FilteringEnabled
